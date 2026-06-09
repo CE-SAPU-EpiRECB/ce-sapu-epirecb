@@ -4,9 +4,86 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CE-SAPU-EpiRECB Consulting International</title>
+  <style>
+.hero{
+background:
+linear-gradient(rgba(5,33,70,.88),rgba(5,33,70,.88)),
+url('https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1800&q=80');
+background-size:cover;
+background-position:center;
+padding:100px 7%;
+color:white;
+}
 
+.hero-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:50px;
+flex-wrap:wrap;
+}
+
+.hero-left{
+flex:1;
+min-width:320px;
+}
+
+.hero-right{
+flex:1;
+display:flex;
+justify-content:center;
+}
+
+.hero-tag{
+color:#d4a017;
+font-weight:bold;
+font-size:24px;
+}
+
+.hero-left h1{
+font-size:65px;
+margin:15px 0;
+}
+
+.hero-left p{
+font-size:24px;
+max-width:700px;
+line-height:1.6;
+}
+
+.logo-card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.logo-card img{
+width:100%;
+max-width:600px;
+}
+
+.hero-buttons{
+margin-top:35px;
+}
+
+.btn{
+background:#d4a017;
+padding:15px 30px;
+border-radius:8px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+margin-right:15px;
+display:inline-block;
+}
+
+.btn-outline{
+background:transparent;
+border:2px solid white;
+}
 <style>
-
+</head>
 *{
 margin:0;
 padding:0;
@@ -279,23 +356,42 @@ font-size:22px;
 
 <section class="hero" id="accueil">
 
-<h1>CE-SAPU-EpiRECB</h1>
+<div class="hero-container">
 
-<h3>Consulting International</h3>
+<div class="hero-left">
+
+<span class="hero-tag">CE-SAPU-EpiRECB</span>
+
+<h1>Consulting International</h1>
 
 <p>
-Cabinet Expert en Santé Publique,
-Épidémiologie, Recherche Clinique,
-Biostatistique, Formation,
-Suivi-Évaluation et Gestion de Projets.
+Cabinet pluridisciplinaire spécialisé en Santé Publique,
+Épidémiologie, Recherche Clinique, Biostatistique,
+Formation, Suivi-Évaluation et Gestion de Projets.
 </p>
 
-<a href="#expertises" class="btn">NOS SERVICES</a>
+<div class="hero-buttons">
+<a href="#expertises" class="btn">👥 NOS SERVICES</a>
+<a href="#contact" class="btn btn-outline">📞 NOUS CONTACTER</a>
+</div>
 
-<a href="#contact" class="btn">NOUS CONTACTER</a>
+</div>
+
+<div class="hero-right">
+<div class="logo-card">
+<img src="logo.png" alt="Logo">
+</div>
+</div>
+
+</div>
 
 </section>
 
+
+
+<section id="expertises">
+
+<h2 class="section-title">Nos Domaines d'Expertise</h2>
 <section id="expertises">
 
 <h2 class="section-title">Nos Domaines d'Expertise</h2>
@@ -303,27 +399,34 @@ Suivi-Évaluation et Gestion de Projets.
 <div class="cards">
 
 <div class="card">
+<div class="card">
 <h3>🏥 Santé Publique</h3>
+<p>Études, enquêtes et renforcement des systèmes de santé.</p>
 </div>
 
 <div class="card">
-<h3>🦠 Épidémiologie</h3>
+<h3>📈 Épidémiologie</h3>
+<p>Surveillance, investigation et analyse des données épidémiologiques.</p>
 </div>
 
 <div class="card">
 <h3>🔬 Recherche Clinique</h3>
+<p>Conception, mise en œuvre et suivi des études cliniques.</p>
 </div>
 
 <div class="card">
 <h3>📊 Biostatistique</h3>
+<p>Analyse statistique avancée et gestion des données.</p>
 </div>
 
 <div class="card">
 <h3>📋 Suivi & Évaluation</h3>
+<p>Suivi des performances et évaluation des programmes.</p>
 </div>
 
 <div class="card">
 <h3>💼 Gestion de Projets</h3>
+<p>Planification, mise en œuvre et gestion efficace des projets.</p>
 </div>
 
 </div>
@@ -333,12 +436,36 @@ Suivi-Évaluation et Gestion de Projets.
 <section class="about" id="apropos">
 
 <h2 class="section-title">À Propos</h2>
-
-<p>
+<p style="max-width:900px;margin:0 auto 40px auto;text-align:center;font-size:18px;">
 Accompagner les institutions, organisations et professionnels
 dans la production de connaissances scientifiques,
 le renforcement des capacités et l'amélioration des performances
 des systèmes de santé et de développement.
+</p>
+<p><div class="cards" style="margin-top:40px">
+
+<div class="card">
+<h3>👨‍🎓 Expertise</h3>
+<p>Approche multidisciplinaire.</p>
+</div>
+
+<div class="card">
+<h3>🤝 Engagement</h3>
+<p>Qualité et éthique professionnelle.</p>
+</div>
+
+<div class="card">
+<h3>🚀 Solutions</h3>
+<p>Solutions innovantes adaptées.</p>
+</div>
+
+<div class="card">
+<h3>💡 Impact</h3>
+<p>Résultats durables et mesurables.</p>
+</div>
+
+</div>
+<h2 class="section-title">À Propos</h2>
 </p>
 
 </section>
