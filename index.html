@@ -18,12 +18,10 @@
             line-height: 1.6;
         }
 
-        /* --- HEADER & NAVIGATION --- */
+        /* --- HEADER & NAVIGATION (ALL DARK BLUE) --- */
         header {
             background-color: #031b33;
             width: 100%;
-            position: relative;
-            z-index: 100;
         }
         
         .top-bar {
@@ -31,8 +29,7 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 10px 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 20px 5px 20px;
         }
         
         .top-info {
@@ -56,48 +53,22 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 10px 20px;
+            padding: 10px 20px 20px 20px;
             vertical-align: middle;
         }
 
         .logo-box-wrapper {
             display: table-cell;
             vertical-align: middle;
-            width: 280px;
+            width: 320px;
         }
 
-        /* Replicating the distinct floating white logo block */
-        .logo-box {
-            background-color: #ffffff;
-            padding: 12px 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            margin-bottom: -25px;
-            position: relative;
-            z-index: 110;
-            text-align: center;
-        }
-
-        .logo-svg {
-            width: 65px;
-            height: 65px;
+        /* Your real logo integrates cleanly directly onto the blue background without the old white box */
+        .logo-image {
+            height: 75px;
             display: block;
-            margin: 0 auto 5px auto;
-        }
-
-        .logo-text-top {
-            font-size: 13px;
-            font-weight: 700;
-            color: #031b33;
-            margin: 2px 0;
-        }
-
-        .logo-text-bottom {
-            font-size: 10px;
-            font-weight: 600;
-            color: #0a2540;
-            line-height: 1.2;
-            margin: 0;
+            /* Filter applied to make text elements on your logo perfectly readable on dark blue if needed */
+            filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5));
         }
 
         .nav-menu-wrapper {
@@ -135,18 +106,17 @@
         /* --- HERO SECTION --- */
         .hero-section {
             background: linear-gradient(135deg, #031b33 40%, #082d54 100%);
-            padding: 80px 20px 100px 20px;
+            padding: 60px 20px 90px 20px;
             position: relative;
             overflow: hidden;
             border-bottom: 8px solid #dca134;
         }
 
-        /* Constellation network background overlay effect */
         .hero-section::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
+            background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);
             background-size: 20px 20px;
             opacity: 0.4;
         }
@@ -162,7 +132,7 @@
 
         .hero-content {
             display: table-cell;
-            width: 50%;
+            width: 55%;
             vertical-align: middle;
             padding-right: 40px;
             color: #ffffff;
@@ -232,42 +202,28 @@
 
         .hero-graphic {
             display: table-cell;
-            width: 50%;
+            width: 45%;
             vertical-align: middle;
             text-align: right;
         }
 
-        /* Large visual showcase box matching the screenshot */
+        /* Sleek container for showcase displaying your original logo image clearly */
         .showcase-box {
             background-color: #ffffff;
             border-radius: 16px;
-            padding: 40px;
+            padding: 30px;
             display: inline-block;
             width: 100%;
-            max-width: 520px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+            max-width: 460px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             text-align: center;
         }
 
-        .showcase-logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px auto;
-        }
-
-        .showcase-title {
-            font-size: 24px;
-            color: #031b33;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .showcase-subtitle {
-            font-size: 16px;
-            color: #0a2540;
-            font-weight: 600;
-            line-height: 1.4;
-            margin: 0;
+        .showcase-img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
         }
 
         /* --- EXPERTISES SECTION --- */
@@ -284,7 +240,6 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 15px;
-            position: relative;
         }
 
         .section-divider {
@@ -310,7 +265,6 @@
         .grid-expertises {
             max-width: 1200px;
             margin: 0 auto;
-            text-align: justify;
         }
 
         .grid-row {
@@ -332,7 +286,6 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Dynamic spacing technique for table-cells acting as grid columns */
         .card-gap {
             display: table-cell;
             width: 25px;
@@ -372,7 +325,7 @@
             margin: 0 auto;
         }
 
-        /* --- ABOUT & VALUES SPLIT --- */
+        /* --- ABOUT & VALUES --- */
         .section-about {
             max-width: 1200px;
             margin: 40px auto 80px auto;
@@ -487,7 +440,7 @@
                 margin-bottom: 20px;
             }
             .card-gap { height: 20px; }
-            .logo-box { margin-bottom: 10px; display: inline-block; width: auto; }
+            .logo-image { margin: 0 auto 15px auto; }
             .nav-menu li { margin: 5px 10px; }
             .hero-title { font-size: 30px; }
             .showcase-box { max-width: 100%; }
@@ -496,8 +449,8 @@
 </head>
 <body>
 
-    <!-- TOP TELEPHONE & LOCATION BAR -->
-    <div class="header">
+    <header>
+        <!-- TOP TELEPHONE & LOCATION BAR -->
         <div class="top-bar">
             <div class="top-info">
                 <span>📞 <a href="tel:+22781210601">+227 81 21 06 01</a></span>
@@ -505,25 +458,11 @@
             </div>
         </div>
 
-        <!-- STYLED WHITE OVERLAY LOGO AND MAIN NAVIGATION -->
+        <!-- FULL BLUE BACKGROUND NAVIGATION BLOCK -->
         <div class="nav-container">
             <div class="logo-box-wrapper">
-                <div class="logo-box">
-                    <!-- SVG Golden Laurel Globe Icon representing the original logo -->
-                    <svg class="logo-svg" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="32" fill="none" stroke="#dca134" stroke-width="2"/>
-                        <path d="M50 18 A 32 32 0 0 0 50 82 Z" fill="#dca134" opacity="0.15"/>
-                        <path d="M50 18 C 30 30, 30 70, 50 82 C 70 70, 70 30, 50 18" fill="none" stroke="#dca134" stroke-width="1.5"/>
-                        <path d="M18 50 C 30 30, 70 30, 82 50 C 70 70, 30 70, 18 50" fill="none" stroke="#dca134" stroke-width="1.5"/>
-                        <line x1="18" y1="50" x2="82" y2="50" stroke="#dca134" stroke-width="1.5"/>
-                        <line x1="50" y1="18" x2="50" y2="82" stroke="#dca134" stroke-width="1.5"/>
-                        <!-- Laurel branches silhouette -->
-                        <path d="M12 75 Q 8 45 22 22 M20 70 Q 14 45 25 28 M88 75 Q 92 45 78 22 M80 70 Q 86 45 75 28" fill="none" stroke="#dca134" stroke-width="2" stroke-linecap="round"/>
-                        <polygon points="50,12 53,19 60,19 55,24 57,31 50,27 43,31 45,24 40,19 47,19" fill="#dca134"/>
-                    </svg>
-                    <div class="logo-text-top">Cabinet Expert en</div>
-                    <div class="logo-text-bottom">Santé-Publique-Épidémiologie<br>Recherche-Clinique-et-Biostatistique</div>
-                </div>
+                <!-- Using your true logo.png directly onto the header -->
+                <img src="logo.png" alt="CE-SAPU-EpiRECB Logo" class="logo-image">
             </div>
             <div class="nav-menu-wrapper">
                 <ul class="nav-menu">
@@ -537,7 +476,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </header>
 
     <!-- MAIN HERO HEADER BLOCK WITH SPLIT BANNER ACCENT -->
     <div class="hero-section" id="accueil">
@@ -554,20 +493,9 @@
                 </div>
             </div>
             <div class="hero-graphic">
-                <!-- Large Elegant Visual Component matching layout -->
+                <!-- Large White Accent Box showcasing your real logo inside the banner -->
                 <div class="showcase-box">
-                    <svg class="showcase-logo" viewBox="0 0 100 100">
-                        <circle cx="50" cy="50" r="32" fill="none" stroke="#dca134" stroke-width="2.5"/>
-                        <path d="M50 18 A 32 32 0 0 0 50 82 Z" fill="#dca134" opacity="0.2"/>
-                        <path d="M50 18 C 30 30, 30 70, 50 82 C 70 70, 70 30, 50 18" fill="none" stroke="#dca134" stroke-width="2"/>
-                        <path d="M18 50 C 30 30, 70 30, 82 50 C 70 70, 30 70, 18 50" fill="none" stroke="#dca134" stroke-width="2"/>
-                        <line x1="18" y1="50" x2="82" y2="50" stroke="#dca134" stroke-width="2"/>
-                        <line x1="50" y1="18" x2="50" y2="82" stroke="#dca134" stroke-width="2"/>
-                        <path d="M12 75 Q 8 45 22 22 M20 70 Q 14 45 25 28 M88 75 Q 92 45 78 22 M80 70 Q 86 45 75 28" fill="none" stroke="#dca134" stroke-width="2.5" stroke-linecap="round"/>
-                        <polygon points="50,10 54,18 62,18 56,23 58,31 50,26 42,31 44,23 38,18 46,18" fill="#dca134"/>
-                    </svg>
-                    <div class="showcase-title">Cabinet Expert en</div>
-                    <div class="showcase-subtitle">Santé-Publique-Épidémiologie<br>Recherche-Clinique-et-Biostatistique</div>
+                    <img src="logo.png" alt="Cabinet Expert en Santé Publique" class="showcase-img">
                 </div>
             </div>
         </div>
@@ -582,7 +510,6 @@
             <!-- Row 1 -->
             <div class="grid-row">
                 <div class="card-expert">
-                    <!-- Cross Shield Icon -->
                     <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         <line x1="12" y1="8" x2="12" y2="16"/>
@@ -594,7 +521,6 @@
                 </div>
                 <div class="card-gap"></div>
                 <div class="card-expert">
-                    <!-- Analytics Magnifier Chart Icon -->
                     <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="18" y1="20" x2="18" y2="10"/>
                         <line x1="12" y1="20" x2="12" y2="4"/>
@@ -607,7 +533,6 @@
                 </div>
                 <div class="card-gap"></div>
                 <div class="card-expert">
-                    <!-- Microscope Icon -->
                     <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M6 18h8M3 22h18M12 18a4 4 0 0 0 4-4V6H8v8a4 4 0 0 0 4 4z M12 2v4M9 3h6"/>
                     </svg>
@@ -620,7 +545,6 @@
             <!-- Row 2 -->
             <div class="grid-row">
                 <div class="card-expert">
-                    <!-- Pie Chart Icon -->
                     <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21.21 15.89A10 10 0 1 1 8 2.83M22 12A10 10 0 0 0 12 2v10z"/>
                     </svg>
@@ -630,7 +554,6 @@
                 </div>
                 <div class="card-gap"></div>
                 <div class="card-expert">
-                    <!-- Checklist Survey Icon -->
                     <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
                         <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
@@ -642,7 +565,6 @@
                 </div>
                 <div class="card-gap"></div>
                 <div class="card-expert">
-                    <!-- Briefcase Project Icon -->
                     <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
                         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
