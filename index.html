@@ -3,760 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CE-SAPU-EpiRECB | Cabinet Expert en Santé Publique & Recherche Clinique</title>
+    <title>CE-SAPU-EpiRECB | Consulting International</title>
     <style>
-        /* --- RESET & GLOBAL STYLES --- */
-        *, *::before, *::after {
-            box-sizing: border-box;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
-            color: #333333;
-            line-height: 1.6;
-        }
+        *, *::before, *::after { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; background-color: #f4f6f9; color: #333; }
 
-        /* --- HEADER & NAVIGATION --- */
-        header {
-            background-color: #031b33;
-            width: 100%;
-        }
+        /* --- HEADER & NAV --- */
+        header { background-color: #031b33; width: 100%; }
+        .top-bar { max-width: 1200px; margin: 0 auto; padding: 15px 20px 5px; text-align: right; color: #fff; font-size: 13px; font-weight: 600; }
+        .top-bar a { color: #fff; text-decoration: none; }
+        .nav-container { display: table; width: 100%; max-width: 1200px; margin: 0 auto; padding: 10px 20px 20px; vertical-align: middle; }
+        .logo-box-wrapper { display: table-cell; vertical-align: middle; width: 350px; }
         
-        .top-bar {
-            display: table;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px 5px 20px;
-        }
+        /* Unique grand logo mis en valeur */
+        .logo-image { height: 85px; display: block; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5)); }
         
-        .top-info {
-            display: table-cell;
-            text-align: right;
-            color: #ffffff;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
+        .nav-menu-wrapper { display: table-cell; vertical-align: middle; text-align: right; }
+        .nav-menu { list-style: none; margin: 0; padding: 0; display: inline-block; }
+        .nav-menu li { display: inline-block; margin-left: 22px; }
+        .nav-menu a { color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .nav-menu a:hover, .nav-menu a.active { color: #dca134; }
+
+        /* --- HERO BANNER (DYNAMIQUE) --- */
+        .hero-section { background: linear-gradient(135deg, #031b33 40%, #082d54 100%); padding: 60px 20px; border-bottom: 8px solid #dca134; }
+        .hero-container { display: table; width: 100%; max-width: 1200px; margin: 0 auto; }
         
-        .top-info span {
-            margin-left: 25px;
-        }
+        /* Côté gauche : Menu d'onglets cliquables */
+        .hero-content { display: table-cell; width: 45%; vertical-align: top; padding-right: 30px; color: #ffffff; }
+        .hero-title { font-size: 32px; font-weight: 700; margin: 0 0 20px 0; color: #ffffff; border-bottom: 2px solid #dca134; padding-bottom: 10px; }
         
-        .top-info a {
-            color: #ffffff;
-            text-decoration: none;
-        }
+        .tab-menu { list-style: none; padding: 0; margin: 0; }
+        .tab-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 12px 15px; margin-bottom: 8px; color: #fff; border-radius: 6px; cursor: pointer; text-align: left; font-size: 14px; font-weight: 600; transition: all 0.3s ease; }
+        .tab-btn:hover { background: rgba(220, 161, 52, 0.15); border-color: #dca134; }
+        .tab-btn.active { background: #dca134; color: #031b33; font-weight: 700; border-color: #dca134; }
 
-        .nav-container {
-            display: table;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 10px 20px 20px 20px;
-            vertical-align: middle;
-        }
-
-        .logo-box-wrapper {
-            display: table-cell;
-            vertical-align: middle;
-            width: 320px;
-        }
-
-        .logo-image {
-            height: 75px;
-            display: block;
-            filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5));
-        }
-
-        .nav-menu-wrapper {
-            display: table-cell;
-            vertical-align: middle;
-            text-align: right;
-        }
-
-        .nav-menu {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: inline-block;
-        }
-
-        .nav-menu li {
-            display: inline-block;
-            margin-left: 22px;
-        }
-
-        .nav-menu a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-        }
-
-        .nav-menu a:hover, .nav-menu a.active {
-            color: #dca134;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero-section {
-            background: linear-gradient(135deg, #031b33 40%, #082d54 100%);
-            padding: 60px 20px 90px 20px;
-            position: relative;
-            overflow: hidden;
-            border-bottom: 8px solid #dca134;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: radial-gradient(rgba(255,255,255,0.12) 1px, transparent 1px);
-            background-size: 20px 20px;
-            opacity: 0.4;
-        }
-
-        .hero-container {
-            display: table;
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content {
-            display: table-cell;
-            width: 55%;
-            vertical-align: middle;
-            padding-right: 40px;
-            color: #ffffff;
-        }
-
-        .hero-badge {
-            font-size: 14px;
-            font-weight: 700;
-            color: #dca134;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .hero-title {
-            font-size: 42px;
-            font-weight: 700;
-            line-height: 1.2;
-            margin: 0 0 20px 0;
-            color: #ffffff;
-        }
-
-        .hero-description {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #e0e6ed;
-            margin-bottom: 30px;
-        }
-
-        .hero-buttons .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            margin-right: 15px;
-        }
-
-        .btn-gold {
-            background-color: #dca134;
-            color: #ffffff;
-            border: 2px solid #dca134;
-        }
-
-        .btn-gold:hover {
-            background-color: #c58f2a;
-            border-color: #c58f2a;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: #ffffff;
-            border: 2px solid #ffffff;
-        }
-
-        .btn-outline:hover {
-            background-color: #ffffff;
-            color: #031b33;
-        }
-
-        .hero-graphic {
-            display: table-cell;
-            width: 45%;
-            vertical-align: middle;
-            text-align: right;
-        }
-
-        .showcase-box {
-            background-color: #ffffff;
-            border-radius: 16px;
-            padding: 30px;
-            display: inline-block;
-            width: 100%;
-            max-width: 460px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            text-align: center;
-        }
-
-        .showcase-img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-
-        /* --- EXPERTISES SECTION --- */
-        .section-expertises {
-            padding: 60px 20px;
-            background-color: #ffffff;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 24px;
-            color: #031b33;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 15px;
-        }
-
-        .section-divider {
-            width: 60px;
-            height: 3px;
-            background-color: #dca134;
-            margin: 0 auto 40px auto;
-            position: relative;
-        }
+        /* Côté droit : Panneau de texte professionnel changeant */
+        .hero-graphic { display: table-cell; width: 55%; vertical-align: top; }
+        .display-panel { background-color: #ffffff; border-radius: 12px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); min-height: 380px; border-left: 6px solid #dca134; }
         
-        .section-divider::after {
-            content: '◆';
-            color: #dca134;
-            position: absolute;
-            top: -7px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffffff;
-            padding: 0 4px;
-            font-size: 10px;
-        }
+        .panel-title { color: #031b33; font-size: 24px; font-weight: 700; margin-top: 0; margin-bottom: 15px; }
+        .panel-subtitle { color: #dca134; font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 0.5px; }
+        .panel-text { color: #555555; font-size: 15px; line-height: 1.7; margin-bottom: 0; }
 
-        .grid-expertises {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .grid-row {
-            display: table;
-            width: 100%;
-            table-layout: fixed;
-            margin-bottom: 25px;
-        }
-
-        .card-expert {
-            display: table-cell;
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border: 1px solid #eaeaea;
-            width: 33.333%;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card-gap {
-            display: table-cell;
-            width: 25px;
-        }
-
-        .card-expert:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-            border-color: #dca134;
-        }
-
-        .card-icon {
-            width: 50px;
-            height: 50px;
-            margin: 0 auto 15px auto;
-            color: #031b33;
-        }
-
-        .card-title {
-            font-size: 16px;
-            color: #031b33;
-            font-weight: 700;
-            margin: 0 0 12px 0;
-        }
-
-        .card-text {
-            font-size: 13px;
-            color: #666666;
-            line-height: 1.5;
-            margin: 0 0 15px 0;
-        }
-
-        .card-line {
-            width: 35px;
-            height: 2px;
-            background-color: #dca134;
-            margin: 0 auto;
-        }
-
-        /* --- ABOUT & VALUES --- */
-        .section-about {
-            max-width: 1200px;
-            margin: 40px auto 60px auto;
-            padding: 0 20px;
-            display: table;
-            width: 100%;
-        }
-
-        .about-text-column {
-            display: table-cell;
-            width: 45%;
-            vertical-align: top;
-            padding-right: 40px;
-        }
-
-        .about-title {
-            font-size: 20px;
-            color: #031b33;
-            font-weight: 700;
-            text-transform: uppercase;
-            margin: 0 0 20px 0;
-        }
-
-        .about-paragraph {
-            font-size: 14px;
-            color: #555555;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .values-column {
-            display: table-cell;
-            width: 55%;
-            vertical-align: top;
-            background-color: #031b33;
-            border-radius: 12px;
-            padding: 35px;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
-        }
-
-        .values-grid {
-            display: table;
-            width: 100%;
-        }
-
-        .values-row {
-            display: table-row;
-        }
-
-        .value-item {
-            display: table-cell;
-            width: 50%;
-            padding: 15px;
-            vertical-align: top;
-            color: #ffffff;
-        }
-
-        .value-header {
-            margin-bottom: 8px;
-        }
-
-        .value-icon {
-            width: 24px;
-            height: 24px;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 8px;
-            color: #dca134;
-        }
-
-        .value-title {
-            font-size: 15px;
-            font-weight: 700;
-            display: inline-block;
-            vertical-align: middle;
-            margin: 0;
-        }
-
-        .value-desc {
-            font-size: 12px;
-            color: #b0c4de;
-            margin: 0;
-            line-height: 1.4;
-        }
-
-        /* --- CONTACT SECTION --- */
-        .section-contact {
-            background-color: #ffffff;
-            padding: 60px 20px;
-        }
-
-        .contact-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: table;
-            width: 100%;
-        }
-
-        .contact-info-block {
-            display: table-cell;
-            width: 40%;
-            vertical-align: top;
-            padding-right: 40px;
-        }
-
-        .contact-info-block h3 {
-            color: #031b33;
-            font-size: 22px;
-            margin-top: 0;
-            margin-bottom: 20px;
-        }
-
-        .contact-detail-item {
-            margin-bottom: 25px;
-        }
-
-        .contact-detail-item h4 {
-            margin: 0 0 5px 0;
-            color: #dca134;
-            text-transform: uppercase;
-            font-size: 12px;
-            letter-spacing: 0.5px;
-        }
-
-        .contact-detail-item p {
-            margin: 0;
-            font-size: 15px;
-            color: #333333;
-            font-weight: 600;
-        }
-
-        .contact-detail-item a {
-            color: #333333;
-            text-decoration: none;
-        }
-
-        .contact-form-block {
-            display: table-cell;
-            width: 60%;
-            vertical-align: top;
-            background-color: #f8fafc;
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid #eaeaea;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #cccccc;
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 14px;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            height: 100px;
-        }
-
-        .btn-submit {
-            background-color: #031b33;
-            color: #ffffff;
-            border: none;
-            padding: 12px 24px;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .btn-submit:hover {
-            background-color: #082d54;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #021121;
-            color: #8a99ad;
-            font-size: 13px;
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        /* --- RESPONSIVE ADAPTATIONS --- */
-        @media (max-width: 768px) {
-            .top-bar, .nav-container, .hero-container, .grid-row, .section-about, .contact-container {
-                display: block;
-                width: 100%;
-                text-align: center;
-            }
-            .top-info, .logo-box-wrapper, .nav-menu-wrapper, .hero-content, .hero-graphic, .card-expert, .card-gap, .about-text-column, .values-column, .contact-info-block, .contact-form-block {
-                display: block;
-                width: 100%;
-                padding-right: 0;
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            .card-gap { height: 20px; }
-            .logo-image { margin: 0 auto 15px auto; }
-            .nav-menu li { margin: 5px 10px; }
-            .hero-title { font-size: 30px; }
-            .showcase-box { max-width: 100%; }
-        }
+        /* --- SECTION CONTACT & FOOTER --- */
+        .section-contact { background-color: #ffffff; padding: 60px 20px; text-align: center; }
+        footer { background-color: #021121; color: #8a99ad; font-size: 13px; text-align: center; padding: 30px 20px; }
     </style>
 </head>
 <body>
 
     <header>
-        <!-- TOP BAR (CLEANED UP NO ICONS) -->
         <div class="top-bar">
-            <div class="top-info">
-                <span><a href="tel:+22781210601">+227 81 21 06 01</a></span>
-                <span>Niamey, Niger</span>
-            </div>
+            <span><a href="tel:+22781210601">+227 81 21 06 01</a></span> | <span>Niamey, Niger</span>
         </div>
-
-        <!-- FULL BLUE BACKGROUND NAVIGATION BLOCK -->
         <div class="nav-container">
             <div class="logo-box-wrapper">
+                <!-- Seul et unique grand logo conservé ici -->
                 <img src="logo.png" alt="CE-SAPU-EpiRECB Logo" class="logo-image">
             </div>
             <div class="nav-menu-wrapper">
                 <ul class="nav-menu">
-                    <li><a href="#accueil" class="active">Accueil</a></li>
-                    <li><a href="#apropos">À Propos</a></li>
-                    <li><a href="#expertises">Expertises</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#formations">Formations</a></li>
-                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#" class="active">Accueil</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </header>
 
-    <!-- MAIN HERO HEADER BLOCK (GOLD LINE REMOVED BEFORE BADGE) -->
-    <div class="hero-section" id="accueil">
+    <div class="hero-section">
         <div class="hero-container">
+            
+            <!-- GAUCHE : SÉLECTION DES EXPERTISES -->
             <div class="hero-content">
-                <span class="hero-badge">CE-SAPU-EpiRECB</span>
-                <h1 class="hero-title">Consulting International</h1>
-                <p class="hero-description">
-                    Cabinet pluridisciplinaire spécialisé en Santé Publique, Épidémiologie, Recherche Clinique, Biostatistique, Formation, Suivi-Évaluation et Gestion de Projets. Nous accompagnons les institutions et les organisations pour un impact durable.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#services" class="btn btn-gold">Nos Services</a>
-                    <a href="#contact" class="btn btn-outline">Nous Contacter</a>
-                </div>
-            </div>
-            <div class="hero-graphic">
-                <div class="showcase-box">
-                    <img src="logo.png" alt="Cabinet Expert en Santé Publique" class="showcase-img">
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SIX DOMAINS OF EXPERTISE FUNCTIONAL CARDS -->
-    <div class="section-expertises" id="expertises">
-        <h2 class="section-title">Nos Domaines d'Expertise</h2>
-        <div class="section-divider"></div>
-        
-        <div class="grid-expertises">
-            <!-- Row 1 -->
-            <div class="grid-row">
-                <div class="card-expert">
-                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <line x1="12" y1="8" x2="12" y2="16"/>
-                        <line x1="8" y1="12" x2="16" y2="12"/>
-                    </svg>
-                    <h3 class="card-title">Santé Publique</h3>
-                    <p class="card-text">Études, enquêtes et renforcement des systèmes de santé.</p>
-                    <div class="card-line"></div>
-                </div>
-                <div class="card-gap"></div>
-                <div class="card-expert">
-                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="20" x2="18" y2="10"/>
-                        <line x1="12" y1="20" x2="12" y2="4"/>
-                        <line x1="6" y1="20" x2="6" y2="14"/>
-                        <circle cx="18" cy="6" r="3"/>
-                    </svg>
-                    <h3 class="card-title">Épidémiologie</h3>
-                    <p class="card-text">Surveillance, investigation et analyse des données épidémiologiques.</p>
-                    <div class="card-line"></div>
-                </div>
-                <div class="card-gap"></div>
-                <div class="card-expert">
-                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M6 18h8M3 22h18M12 18a4 4 0 0 0 4-4V6H8v8a4 4 0 0 0 4 4z M12 2v4M9 3h6"/>
-                    </svg>
-                    <h3 class="card-title">Recherche Clinique</h3>
-                    <p class="card-text">Conception, mise en œuvre et suivi des études cliniques.</p>
-                    <div class="card-line"></div>
-                </div>
-            </div>
-
-            <!-- Row 2 -->
-            <div class="grid-row">
-                <div class="card-expert">
-                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21.21 15.89A10 10 0 1 1 8 2.83M22 12A10 10 0 0 0 12 2v10z"/>
-                    </svg>
-                    <h3 class="card-title">Biostatistique</h3>
-                    <p class="card-text">Analyse statistique avancée et gestion sécurisée des données de santé.</p>
-                    <div class="card-line"></div>
-                </div>
-                <div class="card-gap"></div>
-                <div class="card-expert">
-                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-                        <path d="M9 11l2 2 4-4M9 16l2 2 4-4"/>
-                    </svg>
-                    <h3 class="card-title">Suivi & Évaluation</h3>
-                    <p class="card-text">Suivi rigoureux des performances et évaluation d'impact des programmes.</p>
-                    <div class="card-line"></div>
-                </div>
-                <div class="card-gap"></div>
-                <div class="card-expert">
-                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                    </svg>
-                    <h3 class="card-title">Gestion de Projets</h3>
-                    <p class="card-text">Planification, exécution stratégique et gestion efficace des projets complexes.</p>
-                    <div class="card-line"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- CORPORATE DESCRIPTION & VALUE PROPOSITION PRO BLOCKS -->
-    <div class="section-about" id="apropos">
-        <div class="about-text-column">
-            <h2 class="about-title">À Propos du Cabinet</h2>
-            <p class="about-paragraph">
-                <strong>CE-SAPU-EpiRECB Consulting International</strong> est un cabinet d’expertise de premier plan établi à Niamey, au Niger. Fort d'une équipe d'experts pluridisciplinaires chevronnés, nous accompagnons les institutions publiques, les organisations non gouvernementales (ONG), les agences internationales et les structures de recherche dans la mise en œuvre de solutions durables et de haut niveau scientifique.
-            </p>
-            <p class="about-paragraph">
-                Notre approche sur mesure combine rigueur méthodologique, maîtrise technologique et connaissance approfondie des réalités du terrain sanitaire ou épidémiologique afin de garantir le succès et la pérennité de chaque intervention.
-            </p>
-        </div>
-        
-        <div class="values-column">
-            <div class="values-grid">
-                <div class="values-row">
-                    <div class="value-item">
-                        <div class="value-header">
-                            <span class="value-icon">⭐</span>
-                            <h4 class="value-title">Expertise</h4>
-                        </div>
-                        <p class="value-desc">Une équipe multidisciplinaire hautement qualifiée et spécialisée.</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="value-header">
-                            <span class="value-icon">🤝</span>
-                            <h4 class="value-title">Engagement</h4>
-                        </div>
-                        <p class="value-desc">Une culture d'excellence basée sur la qualité technique et l'éthique pro.</p>
-                    </div>
-                </div>
-                <div class="values-row">
-                    <div class="value-item">
-                        <div class="value-header">
-                            <span class="value-icon">💡</span>
-                            <h4 class="value-title">Solutions</h4>
-                        </div>
-                        <p class="value-desc">Des approches sur mesure, innovantes et adaptées au contexte local.</p>
-                    </div>
-                    <div class="value-item">
-                        <div class="value-header">
-                            <span class="value-icon">📈</span>
-                            <h4 class="value-title">Impact</h4>
-                        </div>
-                        <p class="value-desc">Des résultats mesurables, concrets et orientés vers le développement durable.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- NEW CONTACT SECTION WITH FORM & CONTACT INFO DETAILS -->
-    <div class="section-contact" id="contact">
-        <div class="contact-container">
-            <div class="contact-info-block">
-                <h3>Contactez notre Cabinet</h3>
-                <p style="color: #666; margin-bottom: 30px;">Notre équipe est à votre disposition pour étudier vos besoins et vous proposer des solutions d'accompagnement sur mesure.</p>
-                
-                <div class="contact-detail-item">
-                    <h4>Téléphone</h4>
-                    <p><a href="tel:+22781210601">+227 81 21 06 01</a></p>
-                </div>
-                
-                <div class="contact-detail-item">
-                    <h4>Adresse du Cabinet</h4>
-                    <p>Niamey, Niger</p>
+                <h2 class="hero-title">Nos Domaines d'Expertise</h2>
+                <div class="tab-menu">
+                    <div class="tab-btn active" onclick="showContent('sp')">🛡️ Santé Publique</div>
+                    <div class="tab-btn" onclick="showContent('epi')">📊 Épidémiologie</div>
+                    <div class="tab-btn" onclick="showContent('rc')">🔬 Recherche Clinique</div>
+                    <div class="tab-btn" onclick="showContent('bio')">📐 Biostatistique</div>
+                    <div class="tab-btn" onclick="showContent('se')">📈 Suivi & Évaluation</div>
+                    <div class="tab-btn" onclick="showContent('gp')">💼 Gestion de Projets</div>
+                    <div class="tab-btn" onclick="showContent('form')">🎓 Formations</div>
+                    <div class="tab-btn" onclick="showContent('pub')">📚 Publications</div>
                 </div>
             </div>
             
-            <div class="contact-form-block">
-                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message simulé. Prêt pour l\'intégration d\'un service de formulaire.');">
-                    <div class="form-group">
-                        <input type="text" placeholder="Votre Nom / Nom de l'Organisation" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Votre Adresse Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Objet de votre demande">
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Votre message..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn-submit">Envoyer le message</button>
-                </form>
+            <!-- DROITE : AFFICHAGE DU TEXTE PROFESSIONNEL -->
+            <div class="hero-graphic">
+                <div class="display-panel">
+                    <h3 id="panelTitle" class="panel-title">Santé Publique</h3>
+                    <div id="panelSubtitle" class="panel-subtitle">Études, enquêtes et renforcement des systèmes de santé</div>
+                    <p id="panelText" class="panel-text">
+                        Notre cabinet déploie une expertise pointue pour réaliser des diagnostics communautaires transversaux, des enquêtes de couverture et des évaluations des systèmes de santé. Nous accompagnons les politiques publiques dans la formulation de stratégies sanitaires durables et adaptées aux réalités du terrain au Niger et à l'international.
+                    </p>
+                </div>
             </div>
+
         </div>
     </div>
 
-    <!-- PROFESSIONAL CONTEXT FOOTER -->
+    <div class="section-contact" id="contact">
+        <h2>Contactez notre Cabinet</h2>
+        <p>Téléphone : <strong>+227 81 21 06 01</strong> | Adresse : <strong>Niamey, Niger</strong></p>
+    </div>
+
     <footer>
-        <p>&copy; 2026 CE-SAPU-EpiRECB Consulting International. Tous droits réservés. | Niamey, Niger</p>
+        <p>&copy; 2026 CE-SAPU-EpiRECB Consulting International. Tous droits réservés.</p>
     </footer>
 
+    <!-- LOGIQUE DE TEXTES INTERACTIFS SANS RECHARGEMENT -->
+    <script>
+        const data = {
+            sp: {
+                title: "Santé Publique",
+                subtitle: "Études, enquêtes et renforcement des systèmes de santé",
+                text: "Notre cabinet déploie une expertise pointue pour réaliser des diagnostics communautaires transversaux, des enquêtes de couverture et des évaluations des systèmes de santé. Nous accompagnons les politiques publiques dans la formulation de stratégies sanitaires durables et adaptées aux réalités du terrain au Niger et à l'international."
+            },
+            epi: {
+                title: "Épidémiologie",
+                subtitle: "Surveillance, investigation et analyse des données épidémiologiques",
+                text: "Nous concevons et optimisons des systèmes de surveillance épidémiologique robustes. Qu'il s'agisse d'investiguer des foyers de transmission ou de modéliser les tendances des pathologies émergentes et endémiques, notre rigueur méthodologique assure des analyses prédictives fiables pour guider les prises de décision d'urgence."
+            },
+            rc: {
+                title: "Recherche Clinique",
+                subtitle: "Conception, mise en œuvre et suivi des études cliniques",
+                text: "Du protocole initial au rapport final, nous assurons la gestion intégrale de vos essais et études cliniques. Nous veillons au respect strict des normes éthiques internationales (BPC/ICH), à la sécurité des données et au monitoring rigoureux sur site pour garantir la validité scientifique de vos résultats."
+            },
+            bio: {
+                title: "Biostatistique",
+                subtitle: "Analyse statistique avancée et gestion sécurisée des données de santé",
+                text: "Nous transformons vos données brutes en indicateurs décisionnels fiables. Nos experts maîtrisent la modélisation statistique complexe, le calcul de la taille d'échantillon, le data management sécurisé et l'interprétation des données biomédicales via des logiciels de référence (R, STATA, SPSS)."
+            },
+            se: {
+                title: "Suivi & Évaluation",
+                subtitle: "Suivi rigoureux des performances et évaluation d'impact des programmes",
+                text: "Nous développons des cadres logiques et des plans de suivi-évaluation sur mesure pour vos programmes de développement. À travers des évaluations à mi-parcours et d'impact final, nous mesurons l'efficacité réelle, la pertinence et la durabilité des investissements de nos partenaires."
+            },
+            gp: {
+                title: "Gestion de Projets",
+                subtitle: "Planification, exécution stratégique et gestion efficace des projets complexes",
+                text: "Nous offrons une assistance technique complète pour piloter vos projets de santé globale. De la planification budgétaire à la gestion des risques et à la coordination des équipes interdisciplinaires, nous garantissons le respect des délais et l'atteinte optimale des objectifs contractuels."
+            },
+            form: {
+                title: "Formations Professionnelles",
+                subtitle: "Renforcement des capacités et transfert de compétences",
+                text: "Le cabinet propose des modules de formation certifiants et sur mesure destinés aux professionnels de santé, chercheurs et gestionnaires de programmes. Nos sessions pratiques couvrent l'utilisation des logiciels statistiques, la méthodologie de recherche, l'analyse épidémiologique et les techniques de rédaction scientifique."
+            },
+            pub: {
+                title: "Publications Scientifiques",
+                subtitle: "Valorisation de la recherche et diffusion du savoir",
+                text: "Nous accompagnons les chercheurs et institutions dans la valorisation de leurs travaux scientifiques. Notre équipe intervient dans la structuration des articles, la révision critique, la mise en conformité selon les exigences des revues internationales à comité de lecture, et le processus de soumission éditoriale."
+            }
+        };
+
+        function showContent(key) {
+            // Mise à jour des textes
+            document.getElementById('panelTitle').innerText = data[key].title;
+            document.getElementById('panelSubtitle').innerText = data[key].subtitle;
+            document.getElementById('panelText').innerText = data[key].text;
+
+            // Gestion de la classe active sur les boutons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
 </body>
 </html>
