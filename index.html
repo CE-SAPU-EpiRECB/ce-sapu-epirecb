@@ -3,51 +3,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CE-SAPU-EpiRECB | Consulting International</title>
+    <title>CE-SAPU-EpiRECB | Cabinet Expert en Santé Publique</title>
     <style>
-        *, *::before, *::after { box-sizing: border-box; }
-        body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; background-color: #f4f6f9; color: #333; }
+        /* --- RESET & GLOBAL STYLES --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333333;
+            line-height: 1.6;
+        }
 
-        /* --- HEADER & NAV --- */
-        header { background-color: #031b33; width: 100%; }
-        .top-bar { max-width: 1200px; margin: 0 auto; padding: 15px 20px 5px; text-align: right; color: #fff; font-size: 13px; font-weight: 600; }
-        .top-bar a { color: #fff; text-decoration: none; }
-        .nav-container { display: table; width: 100%; max-width: 1200px; margin: 0 auto; padding: 10px 20px 20px; vertical-align: middle; }
-        .logo-box-wrapper { display: table-cell; vertical-align: middle; width: 350px; }
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background-color: #031b33;
+            width: 100%;
+            position: relative;
+            z-index: 100;
+        }
         
-        /* Unique grand logo mis en valeur */
-        .logo-image { height: 85px; display: block; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5)); }
+        .top-bar {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px 5px 20px;
+            text-align: right;
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 600;
+        }
         
-        .nav-menu-wrapper { display: table-cell; vertical-align: middle; text-align: right; }
-        .nav-menu { list-style: none; margin: 0; padding: 0; display: inline-block; }
-        .nav-menu li { display: inline-block; margin-left: 22px; }
-        .nav-menu a { color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        .nav-menu a:hover, .nav-menu a.active { color: #dca134; }
+        .top-bar a {
+            color: #ffffff;
+            text-decoration: none;
+        }
 
-        /* --- HERO BANNER (DYNAMIQUE) --- */
-        .hero-section { background: linear-gradient(135deg, #031b33 40%, #082d54 100%); padding: 60px 20px; border-bottom: 8px solid #dca134; }
-        .hero-container { display: table; width: 100%; max-width: 1200px; margin: 0 auto; }
-        
-        /* Côté gauche : Menu d'onglets cliquables */
-        .hero-content { display: table-cell; width: 45%; vertical-align: top; padding-right: 30px; color: #ffffff; }
-        .hero-title { font-size: 32px; font-weight: 700; margin: 0 0 20px 0; color: #ffffff; border-bottom: 2px solid #dca134; padding-bottom: 10px; }
-        
-        .tab-menu { list-style: none; padding: 0; margin: 0; }
-        .tab-btn { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 12px 15px; margin-bottom: 8px; color: #fff; border-radius: 6px; cursor: pointer; text-align: left; font-size: 14px; font-weight: 600; transition: all 0.3s ease; }
-        .tab-btn:hover { background: rgba(220, 161, 52, 0.15); border-color: #dca134; }
-        .tab-btn.active { background: #dca134; color: #031b33; font-weight: 700; border-color: #dca134; }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 10px 20px 20px 20px;
+        }
 
-        /* Côté droit : Panneau de texte professionnel changeant */
-        .hero-graphic { display: table-cell; width: 55%; vertical-align: top; }
-        .display-panel { background-color: #ffffff; border-radius: 12px; padding: 40px; box-shadow: 0 10px 30px rgba(0,0,0,0.25); min-height: 380px; border-left: 6px solid #dca134; }
-        
-        .panel-title { color: #031b33; font-size: 24px; font-weight: 700; margin-top: 0; margin-bottom: 15px; }
-        .panel-subtitle { color: #dca134; font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 0.5px; }
-        .panel-text { color: #555555; font-size: 15px; line-height: 1.7; margin-bottom: 0; }
+        .logo-box-wrapper {
+            flex: 0 0 auto;
+        }
 
-        /* --- SECTION CONTACT & FOOTER --- */
-        .section-contact { background-color: #ffffff; padding: 60px 20px; text-align: center; }
-        footer { background-color: #021121; color: #8a99ad; font-size: 13px; text-align: center; padding: 30px 20px; }
+        .logo-image {
+            height: 80px;
+            display: block;
+            filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5));
+        }
+
+        .nav-menu-wrapper {
+            flex: 0 0 auto;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu li {
+            position: relative;
+            margin-left: 25px;
+        }
+
+        .nav-menu a, .dropdown-toggle {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            font-family: inherit;
+        }
+
+        .nav-menu a:hover, .dropdown-toggle:hover, .nav-menu a.active {
+            color: #dca134;
+        }
+
+        /* --- DROPDOWN MENU (MENU DÉROULANT) --- */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #031b33;
+            min-width: 260px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            padding: 10px 0;
+            margin: 5px 0 0 0;
+            list-style: none;
+            border-radius: 4px;
+            border-top: 3px solid #dca134;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            margin: 0;
+            display: block;
+        }
+
+        .dropdown-menu a {
+            padding: 10px 20px;
+            display: block;
+            text-transform: none;
+            font-size: 14px;
+            font-weight: 600;
+            color: #e0e6ed;
+            transition: all 0.2s ease;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #082d54;
+            color: #dca134;
+            padding-left: 25px;
+        }
+
+        /* --- HERO SECTION WITH MEDICAL IMAGE BACKGROUND --- */
+        .hero-section {
+            /* Remplacement par une image professionnelle de matériel médical / laboratoire */
+            background: linear-gradient(rgba(3, 27, 51, 0.85), rgba(3, 27, 51, 0.9)), 
+                        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            padding: 80px 20px;
+            border-bottom: 8px solid #dca134;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+        }
+
+        .hero-content {
+            flex: 1;
+            color: #ffffff;
+        }
+
+        .hero-title {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 15px 0;
+            color: #ffffff;
+            border-bottom: 2px solid #dca134;
+            padding-bottom: 10px;
+        }
+
+        .hero-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #e0e6ed;
+            margin-bottom: 30px;
+        }
+
+        /* Interactive Panel Display on the right */
+        .hero-graphic {
+            flex: 1;
+        }
+
+        .display-panel {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            min-height: 380px;
+            border-left: 6px solid #dca134;
+            transition: all 0.3s ease;
+        }
+
+        .panel-title {
+            color: #031b33;
+            font-size: 26px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .panel-subtitle {
+            color: #dca134;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .panel-text {
+            color: #555555;
+            font-size: 15px;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .section-about {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 40px;
+        }
+
+        .about-text-column {
+            flex: 1;
+        }
+
+        .about-title {
+            font-size: 24px;
+            color: #031b33;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin: 0 0 20px 0;
+            position: relative;
+        }
+
+        .about-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #dca134;
+            margin-top: 8px;
+        }
+
+        .about-paragraph {
+            font-size: 15px;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .values-column {
+            flex: 1;
+            background-color: #031b33;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+            color: #ffffff;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .value-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #dca134;
+            margin: 0 0 5px 0;
+        }
+
+        .value-desc {
+            font-size: 13px;
+            color: #b0c4de;
+            margin: 0;
+        }
+
+        /* --- ACTUALITÉS SECTION --- */
+        .section-news {
+            background-color: #ebf0f5;
+            padding: 60px 20px;
+        }
+
+        .news-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .news-card {
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid #031b33;
+        }
+
+        .news-body {
+            padding: 25px;
+        }
+
+        .news-meta {
+            font-size: 12px;
+            color: #dca134;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            color: #031b33;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
+
+        .news-text {
+            font-size: 14px;
+            color: #666666;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* --- CONTACT SECTION --- */
+        .section-contact {
+            background-color: #ffffff;
+            padding: 60px 20px;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+        }
+
+        .contact-info-block {
+            flex: 1;
+        }
+
+        .contact-info-block h3 {
+            color: #031b33;
+            font-size: 24px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail-item {
+            margin-bottom: 20px;
+        }
+
+        .contact-detail-item h4 {
+            margin: 0 0 5px 0;
+            color: #dca134;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .contact-detail-item p {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .contact-form-block {
+            flex: 1.5;
+            background-color: #f8fafc;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+
+        .btn-submit {
+            background-color: #031b33;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #021121;
+            color: #8a99ad;
+            font-size: 13px;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 992px) {
+            .nav-container, .hero-container, .section-about, .contact-container {
+                flex-direction: column;
+            }
+            .nav-menu {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -58,39 +441,49 @@
         </div>
         <div class="nav-container">
             <div class="logo-box-wrapper">
-                <!-- Seul et unique grand logo conservé ici -->
+                <!-- Unique grand logo conservé à gauche -->
                 <img src="logo.png" alt="CE-SAPU-EpiRECB Logo" class="logo-image">
             </div>
             <div class="nav-menu-wrapper">
                 <ul class="nav-menu">
-                    <li><a href="#" class="active">Accueil</a></li>
+                    <li><a href="#apropos">À Propos</a></li>
+                    
+                    <!-- MENU DÉROULANT UNIQUE ENGLOBANT TOUT -->
+                    <li class="dropdown">
+                        <button class="dropdown-toggle">Nos Expertises ▾</button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#accueil" onclick="showContent('sp')">Santé Publique</a></li>
+                            <li><a href="#accueil" onclick="showContent('epi')">Épidémiologie</a></li>
+                            <li><a href="#accueil" onclick="showContent('rc')">Recherche Clinique</a></li>
+                            <li><a href="#accueil" onclick="showContent('bio')">Biostatistique</a></li>
+                            <li><a href="#accueil" onclick="showContent('se')">Suivi & Évaluation</a></li>
+                            <li><a href="#accueil" onclick="showContent('gp')">Gestion de Projets</a></li>
+                            <li><a href="#accueil" onclick="showContent('form')">Formations</a></li>
+                            <li><a href="#accueil" onclick="showContent('pub')">Publications</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="#actualites">Actualités</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </header>
 
-    <div class="hero-section">
+    <!-- HERO SECTION WITH MATÉRIEL MÉDICAL BACKGROUND -->
+    <div class="hero-section" id="accueil">
         <div class="hero-container">
             
-            <!-- GAUCHE : SÉLECTION DES EXPERTISES -->
             <div class="hero-content">
-                <h2 class="hero-title">Nos Domaines d'Expertise</h2>
-                <div class="tab-menu">
-                    <div class="tab-btn active" onclick="showContent('sp')">🛡️ Santé Publique</div>
-                    <div class="tab-btn" onclick="showContent('epi')">📊 Épidémiologie</div>
-                    <div class="tab-btn" onclick="showContent('rc')">🔬 Recherche Clinique</div>
-                    <div class="tab-btn" onclick="showContent('bio')">📐 Biostatistique</div>
-                    <div class="tab-btn" onclick="showContent('se')">📈 Suivi & Évaluation</div>
-                    <div class="tab-btn" onclick="showContent('gp')">💼 Gestion de Projets</div>
-                    <div class="tab-btn" onclick="showContent('form')">🎓 Formations</div>
-                    <div class="tab-btn" onclick="showContent('pub')">📚 Publications</div>
-                </div>
+                <h1 class="hero-title">CE-SAPU-EpiRECB</h1>
+                <p class="hero-description">
+                    Cabinet International d'Expertise Scientifique. Utilisez le menu déroulant ci-dessus pour explorer en détail nos différents pôles de compétences et d'interventions stratégiques.
+                </p>
             </div>
             
-            <!-- DROITE : AFFICHAGE DU TEXTE PROFESSIONNEL -->
+            <!-- PANNEAU D'AFFICHAGE INTERACTIF PROFESSIONNEL -->
             <div class="hero-graphic">
-                <div class="display-panel">
+                <div class="display-panel" id="mainDisplayPanel">
                     <h3 id="panelTitle" class="panel-title">Santé Publique</h3>
                     <div id="panelSubtitle" class="panel-subtitle">Études, enquêtes et renforcement des systèmes de santé</div>
                     <p id="panelText" class="panel-text">
@@ -102,18 +495,113 @@
         </div>
     </div>
 
+    <!-- CORPORATE DESCRIPTION BLOCK (MOVED TO TOP) -->
+    <div class="section-about" id="apropos">
+        <div class="about-text-column">
+            <h2 class="about-title">À Propos du Cabinet</h2>
+            <p class="about-paragraph">
+                <strong>CE-SAPU-EpiRECB Consulting International</strong> est un cabinet d’expertise de premier plan établi à Niamey, au Niger. Fort d'une équipe d'experts pluridisciplinaires chevronnés, nous accompagnons les institutions publiques, les organisations non gouvernementales (ONG), les agences internationales et les structures de recherche dans la mise en œuvre de solutions durables et de haut niveau scientifique.
+            </p>
+        </div>
+        
+        <div class="values-column">
+            <div class="values-grid">
+                <div>
+                    <h4 class="value-title">⭐ Expertise</h4>
+                    <p class="value-desc">Une équipe multidisciplinaire hautement qualifiée.</p>
+                </div>
+                <div>
+                    <h4 class="value-title">🤝 Engagement</h4>
+                    <p class="value-desc">Une culture d'excellence basée sur l'éthique professionnelle.</p>
+                </div>
+                <div>
+                    <h4 class="value-title">💡 Solutions</h4>
+                    <p class="value-desc">Des approches sur mesure adaptées au contexte local.</p>
+                </div>
+                <div>
+                    <h4 class="value-title">📈 Impact</h4>
+                    <p class="value-desc">Des résultats concrets axés sur le développement durable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW COMPREHENSIVE NEWS SECTION -->
+    <div class="section-news" id="actualites">
+        <div class="news-container">
+            <h2 class="about-title">Actualités de la Santé Globale</h2>
+            <div class="news-grid">
+                
+                <!-- Hantavirus Card -->
+                <div class="news-card">
+                    <div class="news-body">
+                        <div class="news-meta">Focus Pathogène Émergent</div>
+                        <h3 class="news-title">Vigilance face aux Hantavirus</h3>
+                        <p class="news-text">
+                            Les hantavirus, transmis principalement par l'inhalation d'aérosols contaminés par les excrétions de rongeurs, font l'objet d'une surveillance épidémiologique accrue. Notre cabinet rappelle l'importance de renforcer le contrôle des réservoirs animaux et de standardiser les diagnostics différentiels en zone rurale pour prévenir les syndromes pulmonaires et fièvres hémorragiques associées.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Ebola Card -->
+                <div class="news-card">
+                    <div class="news-body">
+                        <div class="news-meta">Gestion des Épidémies</div>
+                        <h3 class="news-title">Virus EBOLA : Protocoles de Riposte</h3>
+                        <p class="news-text">
+                            La résurgence ponctuelle de la Maladie à Virus Ebola souligne la nécessité de maintenir des protocoles de biosécurité et de recherche clinique rigoureux. Le suivi des survivants, l'implémentation de barrières sanitaires strictes et l'évaluation continue de l'efficacité vaccinale sur le terrain restent les piliers majeurs d'une riposte coordonnée pour éviter toute propagation transfrontalière.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Monthly Health Bulletin -->
+                <div class="news-card">
+                    <div class="news-body">
+                        <div class="news-meta">Bulletin Mensuel de Santé</div>
+                        <h3 class="news-title">Indicateurs Sanitaires Mensuels</h3>
+                        <p class="news-text">
+                            Chaque mois, nos biostatisticiens et épidémiologistes compilent les alertes de santé publique prioritaires de la sous-région. L'accent est mis sur l'intégration des données climatiques dans la prédiction des pics de transmission des maladies vectorielles et sur le renforcement des capacités de réponse des centres de santé communautaires.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION -->
     <div class="section-contact" id="contact">
-        <h2>Contactez notre Cabinet</h2>
-        <p>Téléphone : <strong>+227 81 21 06 01</strong> | Adresse : <strong>Niamey, Niger</strong></p>
+        <div class="contact-container">
+            <div class="contact-info-block">
+                <h3>Contactez notre Cabinet</h3>
+                <div class="contact-detail-item">
+                    <h4>Téléphone</h4>
+                    <p><a href="tel:+22781210601" style="color:#333; text-decoration:none;">+227 81 21 06 01</a></p>
+                </div>
+                <div class="contact-detail-item">
+                    <h4>Adresse</h4>
+                    <p>Niamey, Niger</p>
+                </div>
+            </div>
+            
+            <div class="contact-form-block">
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message envoyé avec succès !');">
+                    <div class="form-group"><input type="text" placeholder="Nom de l'Organisation" required></div>
+                    <div class="form-group"><input type="email" placeholder="Adresse Email" required></div>
+                    <div class="form-group"><textarea placeholder="Votre message..." required></textarea></div>
+                    <button type="submit" class="btn-submit">Envoyer</button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <footer>
         <p>&copy; 2026 CE-SAPU-EpiRECB Consulting International. Tous droits réservés.</p>
     </footer>
 
-    <!-- LOGIQUE DE TEXTES INTERACTIFS SANS RECHARGEMENT -->
+    <!-- INTERACTIVE CONTENT ENGINE JS -->
     <script>
-        const data = {
+        const expertisesData = {
             sp: {
                 title: "Santé Publique",
                 subtitle: "Études, enquêtes et renforcement des systèmes de santé",
@@ -157,15 +645,15 @@
         };
 
         function showContent(key) {
-            // Mise à jour des textes
-            document.getElementById('panelTitle').innerText = data[key].title;
-            document.getElementById('panelSubtitle').innerText = data[key].subtitle;
-            document.getElementById('panelText').innerText = data[key].text;
-
-            // Gestion de la classe active sur les boutons
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
+            // Smooth text swap in the hero display card
+            document.getElementById('panelTitle').innerText = expertisesData[key].title;
+            document.getElementById('panelSubtitle').innerText = expertisesData[key].subtitle;
+            document.getElementById('panelText').innerText = expertisesData[key].text;
+            
+            // Highlight animation effect
+            const panel = document.getElementById('mainDisplayPanel');
+            panel.style.transform = 'scale(1.02)';
+            setTimeout(() => { panel.style.transform = 'scale(1)'; }, 200);
         }
     </script>
 </body>
