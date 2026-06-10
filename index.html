@@ -18,7 +18,7 @@
             line-height: 1.6;
         }
 
-        /* --- HEADER & NAVIGATION (ALL DARK BLUE) --- */
+        /* --- HEADER & NAVIGATION --- */
         header {
             background-color: #031b33;
             width: 100%;
@@ -37,10 +37,12 @@
             text-align: right;
             color: #ffffff;
             font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
         
         .top-info span {
-            margin-left: 20px;
+            margin-left: 25px;
         }
         
         .top-info a {
@@ -63,11 +65,9 @@
             width: 320px;
         }
 
-        /* Your real logo integrates cleanly directly onto the blue background without the old white box */
         .logo-image {
             height: 75px;
             display: block;
-            /* Filter applied to make text elements on your logo perfectly readable on dark blue if needed */
             filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.5));
         }
 
@@ -147,10 +147,6 @@
             display: block;
         }
 
-        .hero-badge::before {
-            content: '— ';
-        }
-
         .hero-title {
             font-size: 42px;
             font-weight: 700;
@@ -207,7 +203,6 @@
             text-align: right;
         }
 
-        /* Sleek container for showcase displaying your original logo image clearly */
         .showcase-box {
             background-color: #ffffff;
             border-radius: 16px;
@@ -328,7 +323,7 @@
         /* --- ABOUT & VALUES --- */
         .section-about {
             max-width: 1200px;
-            margin: 40px auto 80px auto;
+            margin: 40px auto 60px auto;
             padding: 0 20px;
             display: table;
             width: 100%;
@@ -411,6 +406,101 @@
             line-height: 1.4;
         }
 
+        /* --- CONTACT SECTION --- */
+        .section-contact {
+            background-color: #ffffff;
+            padding: 60px 20px;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: table;
+            width: 100%;
+        }
+
+        .contact-info-block {
+            display: table-cell;
+            width: 40%;
+            vertical-align: top;
+            padding-right: 40px;
+        }
+
+        .contact-info-block h3 {
+            color: #031b33;
+            font-size: 22px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .contact-detail-item {
+            margin-bottom: 25px;
+        }
+
+        .contact-detail-item h4 {
+            margin: 0 0 5px 0;
+            color: #dca134;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-detail-item p {
+            margin: 0;
+            font-size: 15px;
+            color: #333333;
+            font-weight: 600;
+        }
+
+        .contact-detail-item a {
+            color: #333333;
+            text-decoration: none;
+        }
+
+        .contact-form-block {
+            display: table-cell;
+            width: 60%;
+            vertical-align: top;
+            background-color: #f8fafc;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .btn-submit {
+            background-color: #031b33;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #082d54;
+        }
+
         /* --- FOOTER --- */
         footer {
             background-color: #021121;
@@ -427,12 +517,12 @@
 
         /* --- RESPONSIVE ADAPTATIONS --- */
         @media (max-width: 768px) {
-            .top-bar, .nav-container, .hero-container, .grid-row, .section-about {
+            .top-bar, .nav-container, .hero-container, .grid-row, .section-about, .contact-container {
                 display: block;
                 width: 100%;
                 text-align: center;
             }
-            .top-info, .logo-box-wrapper, .nav-menu-wrapper, .hero-content, .hero-graphic, .card-expert, .card-gap, .about-text-column, .values-column {
+            .top-info, .logo-box-wrapper, .nav-menu-wrapper, .hero-content, .hero-graphic, .card-expert, .card-gap, .about-text-column, .values-column, .contact-info-block, .contact-form-block {
                 display: block;
                 width: 100%;
                 padding-right: 0;
@@ -450,18 +540,17 @@
 <body>
 
     <header>
-        <!-- TOP TELEPHONE & LOCATION BAR -->
+        <!-- TOP BAR (CLEANED UP NO ICONS) -->
         <div class="top-bar">
             <div class="top-info">
-                <span>📞 <a href="tel:+22781210601">+227 81 21 06 01</a></span>
-                <span>📍 Niamey, Niger</span>
+                <span><a href="tel:+22781210601">+227 81 21 06 01</a></span>
+                <span>Niamey, Niger</span>
             </div>
         </div>
 
         <!-- FULL BLUE BACKGROUND NAVIGATION BLOCK -->
         <div class="nav-container">
             <div class="logo-box-wrapper">
-                <!-- Using your true logo.png directly onto the header -->
                 <img src="logo.png" alt="CE-SAPU-EpiRECB Logo" class="logo-image">
             </div>
             <div class="nav-menu-wrapper">
@@ -478,7 +567,7 @@
         </div>
     </header>
 
-    <!-- MAIN HERO HEADER BLOCK WITH SPLIT BANNER ACCENT -->
+    <!-- MAIN HERO HEADER BLOCK (GOLD LINE REMOVED BEFORE BADGE) -->
     <div class="hero-section" id="accueil">
         <div class="hero-container">
             <div class="hero-content">
@@ -488,12 +577,11 @@
                     Cabinet pluridisciplinaire spécialisé en Santé Publique, Épidémiologie, Recherche Clinique, Biostatistique, Formation, Suivi-Évaluation et Gestion de Projets. Nous accompagnons les institutions et les organisations pour un impact durable.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#services" class="btn btn-gold">👥 Nos Services</a>
-                    <a href="#contact" class="btn btn-outline">📞 Nous Contacter</a>
+                    <a href="#services" class="btn btn-gold">Nos Services</a>
+                    <a href="#contact" class="btn btn-outline">Nous Contacter</a>
                 </div>
             </div>
             <div class="hero-graphic">
-                <!-- Large White Accent Box showcasing your real logo inside the banner -->
                 <div class="showcase-box">
                     <img src="logo.png" alt="Cabinet Expert en Santé Publique" class="showcase-img">
                 </div>
@@ -623,6 +711,44 @@
                         <p class="value-desc">Des résultats mesurables, concrets et orientés vers le développement durable.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NEW CONTACT SECTION WITH FORM & CONTACT INFO DETAILS -->
+    <div class="section-contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info-block">
+                <h3>Contactez notre Cabinet</h3>
+                <p style="color: #666; margin-bottom: 30px;">Notre équipe est à votre disposition pour étudier vos besoins et vous proposer des solutions d'accompagnement sur mesure.</p>
+                
+                <div class="contact-detail-item">
+                    <h4>Téléphone</h4>
+                    <p><a href="tel:+22781210601">+227 81 21 06 01</a></p>
+                </div>
+                
+                <div class="contact-detail-item">
+                    <h4>Adresse du Cabinet</h4>
+                    <p>Niamey, Niger</p>
+                </div>
+            </div>
+            
+            <div class="contact-form-block">
+                <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message simulé. Prêt pour l\'intégration d\'un service de formulaire.');">
+                    <div class="form-group">
+                        <input type="text" placeholder="Votre Nom / Nom de l'Organisation" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Votre Adresse Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Objet de votre demande">
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Votre message..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">Envoyer le message</button>
+                </form>
             </div>
         </div>
     </div>
